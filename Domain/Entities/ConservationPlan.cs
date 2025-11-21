@@ -17,8 +17,9 @@ namespace Domain.Entities
         [Required]
         public int DamageReportId { get; set; }
 
-       
-        
+        [Required]
+        public string CreatedByUserId { get; set; }
+
 
         [Required, MaxLength(200)]
         public string ?TitleAr { get; set; }
@@ -70,7 +71,7 @@ namespace Domain.Entities
 
         [ForeignKey("CreatedByUserId")]
         
-
+        public virtual ApplicationUser? CreatedBy { get; set; }
         public virtual ICollection<PlanDocument> ?Documents { get; set; }
         public virtual ICollection<PlanProgress>? ProgressUpdates { get; set; }
     }
